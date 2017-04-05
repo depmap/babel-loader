@@ -17,12 +17,22 @@ module.exports = {
 		// TODO
     // find deps via import/require
     // https://gist.github.com/pilwon/ff55634a29bb4456e0dd
-    // fs.readFileSync(file).toString().split('\n').forEach(line => {
-    //   if (line.startsWith('import')) {
-    //     let file = IMPORT_RE.exec(line)[3]
-    //     deps.push(`js_${path.parse(file).name}`)
-    //   }
-    // })
+    fs.readFileSync(file).toString().split('\n').forEach(line => {
+      let match
+      if (line.startsWith('import')) {
+        match = IMPORT_RE.exec(line)
+        if (match.length > 3) {
+          let file = match[3]
+          deps.push(`js_${path.parse(file).name}`)
+        }
+      } else {
+        match = REQUIRE_RE.exec(line)
+        if (match && match.length > 3) {
+          let file = match[3]
+          deps.push(`js_${path.parse(file).name}`)
+        }
+      }
+    })
 
     return deps
   },
