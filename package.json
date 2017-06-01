@@ -1,6 +1,6 @@
 {
   "name": "@depmap/babel-loader",
-  "version": "1.0.0",
+  "version": "1.0.0-alpha.0",
   "description": "Babel loader for Depmap",
   "main": "index.js",
   "scripts": {
@@ -8,10 +8,10 @@
   },
   "enginesStrict": true,
   "engines": {
-    "node": ">= 7.9.0"
+    "node": ">= 8.0.0"
   },
   "dependencies": {
-    "babel-core": "^6.24.0",
+    "babel-core": "^6.24.1",
     "multimatch": "^2.1.0"
   },
   "homepage": "https://github.com/depmap/babel-loader#readme",
